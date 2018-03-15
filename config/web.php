@@ -1,12 +1,14 @@
 <?php
 
-$params = require __DIR__ . '/params.php';
+$params = require(__DIR__ . '/params.php');
 $db = require __DIR__ . '/db.php';
 
 $config = [
     'id' => 'basic',
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log'],
+	'language' => 'ru-Ru',
+	'layout' => 'main',
     'aliases' => [
         '@bower' => '@vendor/bower-asset',
         '@npm'   => '@vendor/npm-asset',
@@ -15,6 +17,7 @@ $config = [
         'request' => [
             // !!! insert a secret key in the following (if it is empty) - this is required by cookie validation
             'cookieValidationKey' => '4422',
+	        'baseUrl' => '',
         ],
         'cache' => [
             'class' => 'yii\caching\FileCache',
@@ -42,15 +45,26 @@ $config = [
                 ],
             ],
         ],
+	    'urlManager' => [
+		    'enablePrettyUrl' => true,
+		    'showScriptName' => false,
+		    //'enableStrictParsing' => false,
+//		    'suffix' => '.html',
+		    'rules' => [
+//		    	[
+//		    	    'pattern' => '',
+//				    'route' => 'site/index',
+//				    'suffix' => ''
+//			    ],
+			    '<action:\w+>' => 'site/<action>',
+		    	'<action:(about|contact|login)>' => 'site/<action>',
+//		    	//'about' => 'site/about',
+			    //'contact' => 'site/contact'
+		    ],
+	    ],
+	    //$db = require(__DIR__ . '/db.php'),
         'db' => $db,
-        /*
-        'urlManager' => [
-            'enablePrettyUrl' => true,
-            'showScriptName' => false,
-            'rules' => [
-            ],
-        ],
-        */
+
     ],
     'params' => $params,
 ];

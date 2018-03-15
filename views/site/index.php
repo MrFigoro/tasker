@@ -7,45 +7,38 @@ $this->title = 'My Yii Application';
 <div class="site-index">
 
     <div class="jumbotron">
-        <h1>Congratulations!</h1>
+        <h1>Tasker</h1>
+        <h2>Приложение для создания и контроля поручений и задач</h2>
 
-        <p class="lead">You have successfully created your Yii-powered application.</p>
+        <p class="lead">Что бы ознакомиться с проектом нажмите на кнопку:</p>
 
-        <p><a class="btn btn-lg btn-success" href="http://www.yiiframework.com">Get started with Yii</a></p>
+        <?= yii\helpers\Html::a('О проекте!', ['/about'], ['class' => ['btn', 'btn-lg', 'btn-success']]) ?>
     </div>
 
     <div class="body-content">
 
         <div class="row">
             <div class="col-lg-4">
-                <h2>Heading</h2>
+                <h2>Поручения</h2>
 
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-                    dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                    ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-                    fugiat nulla pariatur.</p>
+                <p>Первичным источником задач является поручение. Поручение, как правило, создает модератор
+                после получения письма на почту от заказчика или от сотрудника. </p>
 
-                <p><a class="btn btn-default" href="http://www.yiiframework.com/doc/">Yii Documentation &raquo;</a></p>
+                <p><?= yii\helpers\Html::a('Поручения &raquo;', ['/poruchenie/index'], ['class' => ['btn', 'btn-default']]) ?></p>
             </div>
             <div class="col-lg-4">
-                <h2>Heading</h2>
+                <h2>Задачи</h2>
 
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-                    dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                    ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-                    fugiat nulla pariatur.</p>
+                <p>Управление задачами полностью ложится на плечи администратора. Создание, удаление, изменение статуса и т.п.</p>
 
-                <p><a class="btn btn-default" href="http://www.yiiframework.com/forum/">Yii Forum &raquo;</a></p>
+                <p><?= yii\helpers\Html::a('Задачи &raquo;', ['/zadacha/index'], ['class' => ['btn', 'btn-default']]) ?></p>
             </div>
             <div class="col-lg-4">
-                <h2>Heading</h2>
+                <h2>Отзывы</h2>
 
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-                    dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                    ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-                    fugiat nulla pariatur.</p>
+                <p>Добавить отзывы вы можете отсавить в гостевой книге.</p>
 
-                <p><a class="btn btn-default" href="http://www.yiiframework.com/extensions/">Yii Extensions &raquo;</a></p>
+                <p><a class="btn btn-default" href="http://x-chel.zzz.com.ua/">Гостевая книга &raquo;</a></p>
             </div>
         </div>
 

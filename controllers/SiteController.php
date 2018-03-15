@@ -4,13 +4,15 @@ namespace app\controllers;
 
 use Yii;
 use yii\filters\AccessControl;
-use yii\web\Controller;
+//use yii\web\Controller;
 use yii\web\Response;
 use yii\filters\VerbFilter;
 use app\models\LoginForm;
 use app\models\ContactForm;
+use app\models\SignForm;
+use app\models\User;
 
-class SiteController extends Controller
+class SiteController extends AppController
 {
     /**
      * @inheritdoc
@@ -69,6 +71,24 @@ class SiteController extends Controller
      *
      * @return Response|string
      */
+
+	public function actionSign()
+	{
+		$model = new SignForm();
+
+		if ($model->load(Yii::$app->request->post())) {
+			if ($user = $model->sign()) {
+				if (Yii::$app->getUser()->login($user)) {
+					return $this->goHome();
+				}
+			}
+		}
+
+		return $this->render('sign', [
+			'model' => $model,
+		]);
+	}
+
     public function actionLogin()
     {
         if (!Yii::$app->user->isGuest) {
@@ -123,4 +143,15 @@ class SiteController extends Controller
     {
         return $this->render('about');
     }
+
+	public function actionHello2()
+	{
+		return 'Hello World!';
+	}
+
+	public function actionHello()
+	{
+		return $this->render('hello');
+	}
+
 }
