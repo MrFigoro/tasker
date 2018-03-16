@@ -24,13 +24,13 @@ echo "<h2>Всего должностей: ".$dc."</h2>";
 //echo count($cats[0]->products);
 //debug($cats)
 
-echo '<ol>';
+echo '<ul>';
 foreach($dolzh as $s) {
-	echo '<li>' . $s['description']. '</li>';
+	echo '<li>' . $s['description']. ' - ID должности: '.$s['id_dolzhnost'].'</li>';
 }
-echo '</ol>';
+echo '</ul>';
 echo LinkPager::widget(['pagination' => $pagination]);
 
 MyWidget::begin();
-echo "<p>Должности может редактировать только администратор!</p>";
+echo "<p>Должности и их ID выводятся из таблицы должностей!</p>";
 MyWidget::end();
